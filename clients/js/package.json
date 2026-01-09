@@ -1,0 +1,34 @@
+{
+  "name": "keyva-client",
+  "version": "0.1.0",
+  "description": "Node.js client for Keyva.dev API",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "scripts": {
+    "build": "tsc",
+    "test": "jest"
+  },
+  "keywords": [
+    "keyva",
+    "api",
+    "client"
+  ],
+  "author": "Keyva.dev",
+  "license": "UNLICENSED",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "devDependencies": {
+    "@types/jest": "^30.0.0",
+    "@types/node": "^25.0.3",
+    "jest": "^30.2.0",
+    "ts-jest": "^29.4.6",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "axios": "^1.13.2",
+    "jose": "^6.1.3"
+  }
+}

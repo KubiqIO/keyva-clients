@@ -1,0 +1,76 @@
+API Reference
+Interact with Keyva programmatically.
+
+Authentication
+Authenticate your requests by including your API key in the X-Api-Key header (preferred) or as a Bearer token in the Authorization header.
+
+X-Api-Key: k_live_...
+# OR
+Authorization: Bearer k_live_...
+Generating API Keys
+To generate an API key:
+
+Go to your Dashboard Settings.
+Scroll to the API Keys section.
+Click Create New Key.
+Copy the key immediately, as it will not be shown again.
+Base URL
+All management endpoints are prefixed with:
+
+https://keyva.dev/api/v1
+Note: The /validate endpoint is available at the root level for easier integration.
+
+Endpoints
+GET
+https://keyva.dev/validate
+Checks if a license key is valid, not expired, and not revoked. Returns the license details and enabled features.
+
+Parameters
+key (string, required): The license key to validate. Can be passed as a query parameter or in the X-License-Key header.
+release (string, optional): A version number (e.g., 1.0.0) to check eligibility for.
+
+
+POST
+/licenses
+Creates a new license.
+
+Body Parameters
+product_id (string, required): The ID of the product.
+expires_at (string, optional): Expiration date (ISO 8601). Cannot be used with duration.
+duration (string, optional): Duration (e.g., "14d", "1mo", "1y"). Overrides expires_at.
+feature_codes (string[], optional): List of feature codes to enable.
+release_versions (string[], optional): List of allowed release versions.
+allowed_ips (string[], optional): List of allowed IP addresses.
+allowed_networks (string[], optional): List of allowed network CIDRs.
+
+
+PUT
+/licenses/:key
+Updates an existing license.
+
+Body Parameters
+expires_at (string, optional): New expiration date (ISO 8601). Cannot be used with duration.
+duration (string, optional): Duration to add (e.g., "14d", "1mo", "1y"). Overrides expires_at if provided.
+feature_codes (string[], optional): List of feature codes to enable.
+release_versions (string[], optional): List of allowed release versions.
+allowed_ips (string[], optional): List of allowed IP addresses.
+allowed_networks (string[], optional): List of allowed network CIDRs.
+
+
+POST
+/licenses/:key/activate
+Activates a license that has been previously revoked or suspended.
+
+Body Parameters
+expires_at (string, optional): New expiration date (ISO 8601).
+duration (string, optional): Duration to add (e.g., "14d", "1mo", "1y"). Overrides expires_at.
+
+
+POST
+/licenses/:key/revoke
+Revokes the license, preventing it from passing validation.
+
+
+DELETE
+/licenses/:key
+Permanently deletes the license.

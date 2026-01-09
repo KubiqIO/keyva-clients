@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=61.0"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "keyva-client"
+version = "0.1.0"
+description = "Python client for Keyva API"
+readme = "README.md"
+authors = [
+  { name="Keyva Team", email="contact@keyva.io" },
+]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+]
+requires-python = ">=3.7"
+
+[project.urls]
+"Homepage" = "https://github.com/keyva/keyva-client"

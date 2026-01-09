@@ -1,0 +1,19 @@
+{
+    "name": "keyva/client",
+    "description": "PHP client for Keyva API",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Keyva\\": "src/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Keyva Team",
+            "email": "contact@keyva.io"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
