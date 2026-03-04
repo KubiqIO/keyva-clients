@@ -1,0 +1,21 @@
+name: Publish PHP Client to Packagist
+
+on:
+  push:
+    tags:
+      - "php-v*"
+
+jobs:
+  publish:
+    name: Trigger Packagist Update
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger Packagist Update
+        env:
+          PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}
+          PACKAGIST_TOKEN: ${{ secrets.PACKAGIST_TOKEN }}
+        run: |
+          curl -X POST "https://packagist.org/api/update-package?username=${PACKAGIST_USERNAME}&apiToken=${PACKAGIST_TOKEN}" \
+               -H "Accept: application/json" \
+               -H "Content-Type: application/json" \
+               -d '{"repository":{"url":"https://packagist.org/packages/keyva/client"}}'
