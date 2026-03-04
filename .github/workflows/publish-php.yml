@@ -7,35 +7,9 @@ on:
 
 jobs:
   publish:
-    name: Split PHP directory and Trigger Packagist
+    name: Trigger Packagist Update
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Git Subtree Split (PHP Client)
-        run: |
-          git subtree split --prefix=clients/php -b php-dist
-          git push -f origin php-dist:php-dist
-
-      - name: Tag the split branch
-        run: |
-          # Extract the version from the tag (e.g., 'php-v0.1.0' -> 'v0.1.0')
-          VERSION=${GITHUB_REF#refs/tags/php-}
-          
-          # We need to configure git
-          git config --global user.name "GitHub Actions"
-          git config --global user.email "actions@github.com"
-          
-          # Fetch the newly pushed branch
-          git fetch origin php-dist
-          git checkout php-dist
-          
-          # Tag the root of the php-dist branch with the specific version
-          git tag $VERSION
-          git push origin $VERSION
-
       - name: Trigger Packagist Update
         env:
           PACKAGIST_USERNAME: ${{ secrets.PACKAGIST_USERNAME }}

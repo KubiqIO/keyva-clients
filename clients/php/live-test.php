@@ -1,6 +1,6 @@
 <?php
 
-require 'vendor/autoload.php';
+require '../../vendor/autoload.php';
 
 use Keyva\KeyvaClient;
 use Keyva\Exceptions\KeyvaException;

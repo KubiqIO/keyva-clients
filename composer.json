@@ -5,7 +5,7 @@
     "license": "MIT",
     "autoload": {
         "psr-4": {
-            "Keyva\\": "src/"
+            "Keyva\\": "clients/php/src/"
         }
     },
     "authors": [
