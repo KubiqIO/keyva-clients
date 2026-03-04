@@ -5,17 +5,43 @@ build-backend = "setuptools.build_meta"
 [project]
 name = "keyva-client"
 version = "0.1.0"
-description = "Python client for Keyva API"
+description = "Python client for the Keyva.dev license management API"
 readme = "README.md"
+license = "LicenseRef-Proprietary"
+license-files = ["LICENSE"]
 authors = [
-  { name="Keyva Team", email="contact@keyva.io" },
+  { name = "Kubiq LLC", email = "contact@keyva.dev" },
 ]
+keywords = ["keyva", "license", "api", "client"]
 classifiers = [
     "Programming Language :: Python :: 3",
-    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
     "Operating System :: OS Independent",
+    "Intended Audience :: Developers",
+    "Topic :: Software Development :: Libraries :: Python Modules",
 ]
-requires-python = ">=3.7"
+requires-python = ">=3.8"
+dependencies = [
+    "requests>=2.25.0",
+    "PyJWT>=2.0.0",
+    "cryptography>=3.0",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=7.0",
+    "responses>=0.20.0",
+]
 
 [project.urls]
-"Homepage" = "https://github.com/keyva/keyva-client"
+Homepage = "https://keyva.dev"
+Documentation = "https://keyva.dev/docs"
+Repository = "https://github.com/KubiqIO/keyva-clients"
+
+[tool.setuptools.packages.find]
+where = ["src"]
