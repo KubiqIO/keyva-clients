@@ -15,5 +15,8 @@
         }
     ],
     "minimum-stability": "stable",
-    "require": {}
+    "require": {
+        "guzzlehttp/guzzle": "^7.10",
+        "firebase/php-jwt": "^7.0"
+    }
 }
