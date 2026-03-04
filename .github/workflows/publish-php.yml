@@ -15,10 +15,9 @@ jobs:
           fetch-depth: 0
 
       - name: Git Subtree Split (PHP Client)
-        uses: sfc-gh-nelson/splitsh-action@v1.0.0
-        with:
-          prefix: 'clients/php'
-          target: 'php-dist' 
+        run: |
+          git subtree split --prefix=clients/php -b php-dist
+          git push -f origin php-dist:php-dist
 
       - name: Tag the split branch
         run: |
