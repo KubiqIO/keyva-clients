@@ -18,4 +18,4 @@ jobs:
           curl -X POST "https://packagist.org/api/update-package?username=${PACKAGIST_USERNAME}&apiToken=${PACKAGIST_TOKEN}" \
                -H "Accept: application/json" \
                -H "Content-Type: application/json" \
-               -d '{"repository":{"url":"https://packagist.org/packages/keyva/client"}}'
+               -d '{"repository":{"url":"https://github.com/${{ github.repository }}"}}'
