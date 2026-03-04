@@ -15,15 +15,10 @@ jobs:
           fetch-depth: 0
 
       - name: Git Subtree Split (PHP Client)
-        uses: joshmfrankel/split-action@v1
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        uses: sfc-gh-nelson/splitsh-action@v1.0.0
         with:
-          package_directory: 'clients/php'
-          repository_organization: '${{ github.repository_owner }}'
-          repository_name: 'keyva-clients' # Pushing it back to the same repo...
-          target_branch: 'php-dist' # ...but to a dedicated branch called 'php-dist'
-          create_target_branch_if_missing: true
+          prefix: 'clients/php'
+          target: 'php-dist' 
 
       - name: Tag the split branch
         run: |
